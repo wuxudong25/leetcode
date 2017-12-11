@@ -67,7 +67,7 @@ public class Test_leet {
         Iterator iterator_1 = tab.keySet().iterator();    
         while (iterator_1.hasNext()) {    
          Object key = iterator_1.next();    
-         System.out.println("tab.get(key) is :"+tab.get(key));    
+         System.out.println("tab.get("+ key +") is :"+tab.get(key));    
         }             
             
         TreeMap tmp=new TreeMap();                
@@ -78,7 +78,7 @@ public class Test_leet {
         Iterator iterator_2 = tmp.keySet().iterator();    
         while (iterator_2.hasNext()) {    
          Object key = iterator_2.next();    
-         System.out.println("tmp.get(key) is :"+tmp.get(key));    
+         System.out.println("tmp.get("+ key +") is :"+tmp.get(key));    
         }             
                       
 	}
