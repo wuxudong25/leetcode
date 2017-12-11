@@ -1,2 +1,2 @@
-# leetcode
-write some leetcode solution here for practice
+# My leetcode solutions
+I write some leetcode solutions here for practice
