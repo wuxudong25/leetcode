@@ -1,11 +1,5 @@
 package leetcode;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
-
 //Given a string, find the length of the longest substring without repeating characters.
 //
 //Examples:
