@@ -18,13 +18,28 @@ import java.util.TreeSet;
 
 public class LongestSubstring {
 	public int lengthOfLongestSubstring(String s) {
-		// iterator the string and retrieve the no-repeat substring, start a new one when there is a repeat character, then return the longest length
+	  // iterator the string and retrieve the no-repeat substring, 
+	  //start a new one when there is a repeat character, then return the longest length
+	  String subString = "";
+	  int longestLength = 0;
+	  for (int i=0;i<s.length();i++){
+	    String currentLetter = s.substring( i, i+1 );
+	    if ( subString.contains( currentLetter ) )
+        {
+          longestLength = Integer.max( longestLength, subString.length() );
+          subString = currentLetter;
+        }
+	    else
+	    {
+	      subString = subString.concat( currentLetter );
+	    }
+	  }
 	  
-		
+	  return longestLength;
     }
 	
 	public static void main(String[] args) {
-		String string = "abcabcdebcaaa";
+		String string = "pwwkew";
 		LongestSubstring testSample = new LongestSubstring();
 		System.out.println(testSample.lengthOfLongestSubstring(string));
 	}
