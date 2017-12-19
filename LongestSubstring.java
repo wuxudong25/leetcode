@@ -13,27 +13,36 @@ package leetcode;
 public class LongestSubstring {
 	public int lengthOfLongestSubstring(String s) {
 	  // iterator the string and retrieve the no-repeat substring, 
-	  //start a new one when there is a repeat character, then return the longest length
+	  // when there is a repeat character, start from the following letter of the old duplicate letter
 	  String subString = "";
 	  int longestLength = 0;
-	  for (int i=0;i<s.length();i++){
-	    String currentLetter = s.substring( i, i+1 );
-	    if ( subString.contains( currentLetter ) )
-        {
-          longestLength = Integer.max( longestLength, subString.length() );
-          subString = currentLetter;
-        }
-	    else
-	    {
-	      subString = subString.concat( currentLetter );
-	    }
+	  if (s == null || s.length() == 0) 
+	  {
+        return 0;
+      }
+	  if (s.length() ==1 )
+	  {
+	    return 1;
 	  }
-	  
-	  return longestLength;
-    }
+	  for (int i=0;i<s.length();i++){
+        String currentLetter = s.substring( i, i+1 );
+        if ( subString.contains( currentLetter ) )
+        {
+          subString = subString.substring( subString.indexOf( currentLetter ) + 1 ) + currentLetter;
+          longestLength = Integer.max( longestLength, subString.length() );
+        }
+        else
+        {
+          subString = subString + currentLetter;
+          longestLength = Integer.max( longestLength, subString.length() );
+        }
+      }
+      
+      return longestLength;
+	}
 	
 	public static void main(String[] args) {
-		String string = "pwwkew";
+		String string = "dvdf";
 		LongestSubstring testSample = new LongestSubstring();
 		System.out.println(testSample.lengthOfLongestSubstring(string));
 	}
