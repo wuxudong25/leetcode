@@ -18,6 +18,20 @@ package leetcode;
 public class MedianofTwoSortedArrays
 {
   public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    int[] longArray = nums1.length >= nums2.length ? nums1 : nums2;
+    int[] shortArray = nums1.length < nums2.length ? nums1 : nums2;
+    int i = (longArray.length + shortArray.length)/2 - shortArray.length;
+    int j = shortArray.length - 1;
+
     
+    return (double)j;
+  }
+  
+  public static void main( String[] args )
+  {
+    MedianofTwoSortedArrays example = new MedianofTwoSortedArrays();
+    int[] nums1 = {1,3,5,7,9};
+    int[] nums2 = {2,3,4};
+    System.out.println( example.findMedianSortedArrays( nums1, nums2 ) );
   }
 }

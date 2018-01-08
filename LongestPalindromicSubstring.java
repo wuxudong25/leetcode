@@ -16,7 +16,7 @@ package leetcode;
 //Output: "bb"
 
 public class LongestPalindromicSubstring {
-	// to do, still got out of bound exception, need more investigate
+	// to do, current logic will always return the substring[0,2] even it is not palindromic
 	public String longestPalindrome(String s) {
 		if (s.length() <= 1) {
 			return s;
@@ -24,7 +24,7 @@ public class LongestPalindromicSubstring {
 		String str = new String("");
 		String longest = new String("");
 
-		for (int i = 0; i < s.length(); i++) {
+		for (int i = 0; i < s.length()-1; i++) {
 			str = getPalindrome(s, i, i);
 			if (longest.length() < str.length()) {
 				longest = str;
@@ -39,15 +39,21 @@ public class LongestPalindromicSubstring {
 	}
 
 	public String getPalindrome(String s, int left, int right) {
-		while (left >= 0 && right < s.length()-1 && s.substring(left, left + 1).equals(s.substring(right, right + 1))) {
-			left--;
-			right++;
-		}
-		return s.substring(left+1, right-left+1);
+		while (left >= 0 && right < s.length()-1 && s.substring(left, left + 1).equals(s.substring(right, right + 1)))
+        {
+          left--;
+          right++;
+        }
+		if ( left == -1 || right == s.length() )
+        {
+          left++;
+          right--;
+        }
+		return s.substring(left, right+1);
 	}
 
 	public static void main(String[] args) {
 		LongestPalindromicSubstring example = new LongestPalindromicSubstring();
-		System.out.println(example.longestPalindrome("abacdfgdcaba"));
+		System.out.println(example.longestPalindrome("abcdba"));
 	}
 }
