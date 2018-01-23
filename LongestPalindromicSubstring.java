@@ -57,9 +57,13 @@ public class LongestPalindromicSubstring
     }
     if ( changed && !( left == 0 && right == s.length() - 1 ) )
     {
-      left++;
-      right--;
+       left++;
+       right--;
     }
+//    else if ( changed && right == s.length() - 1 && !s.substring( left, left + 1 ).equals( s.substring( right, right + 1 ) ) ){
+//        left++;
+//        right--;
+//    }
     else if ( right - left == 1 && left!= -1)
     {
       return s.substring( left, right );
@@ -70,6 +74,6 @@ public class LongestPalindromicSubstring
   public static void main( String[] args )
   {
     LongestPalindromicSubstring example = new LongestPalindromicSubstring();
-    System.out.println( example.longestPalindrome( "abadcabacd" ) );
+    System.out.println( example.longestPalindrome( "abcaba" ) );
   }
 }
